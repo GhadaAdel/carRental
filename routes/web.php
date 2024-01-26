@@ -31,9 +31,11 @@ Route::prefix('/')->controller(MainController::class)->group(function(){
 
 Route::prefix('/')->controller(ContactController::class)->group(function(){
     Route::post('submit', 'sendEmail')->name('submit');
+    Route::get('Notification/markAsRead', 'markAsRead')->name('readNotification');
 });
     
 
 Auth::routes(['verify'=>true]);
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+

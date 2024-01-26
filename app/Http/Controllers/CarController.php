@@ -7,6 +7,7 @@ use Illuminate\Http\RedirectResponse;
 use App\Models\Car;
 use App\Models\User;
 use App\Models\Category;
+use App\Models\Contact;
 use App\Traits\Common;
 
 class CarController extends Controller

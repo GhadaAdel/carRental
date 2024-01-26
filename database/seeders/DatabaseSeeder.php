@@ -8,6 +8,7 @@ use App\Models\Car;
 use App\Models\Category;
 use App\Models\User;
 use App\Models\Testimonial;
+use App\Models\Contact;
 
 class DatabaseSeeder extends Seeder
 {
@@ -20,5 +21,6 @@ class DatabaseSeeder extends Seeder
         Category::factory(5)->create();
         Car::factory(5)->create();
         Testimonial::factory(5)->create();
+        Contact::factory(5)->create();
     }
 }

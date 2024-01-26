@@ -14,5 +14,16 @@ class Contact extends Model
         'username',
         'email',
         'message',
+        // 'user_id'
+
     ];
+
+    // public function user_id(){
+    //     return $this->belongsTo(User::class);
+    // }
+
+    public function user()
+{
+    return $this->belongsTo(User::class);
+}
 }

@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Testimonial;
-use App\Models\Car;
+use App\Models\User;
 
 class HomeController extends Controller
 {
@@ -25,7 +25,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $cars= Car::get();
-        return view('admin/cars', compact('cars'));
+        $users= User::get();
+        return view('admin/users', compact('users'));
         }
 }

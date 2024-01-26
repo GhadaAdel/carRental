@@ -6,6 +6,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\TestimonialController;
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\ContactController;
 
 /*
 |--------------------------------------------------------------------------
@@ -60,4 +61,10 @@ Route::prefix('admin')->controller(TestimonialController::class)->group(function
 })->middleware('verified');
 
 Route::post('logout', [LoginController::class, 'logout'])->name('logout');
+
+Route::prefix('admin')->controller(ContactController::class)->group(function(){
+    Route::get('message', 'index')->name('messagesList');
+    Route::get('showMessage/{id}', 'show')->name('showMessage');
+    Route::get('unread', 'getUnreadMessages');
+});
 

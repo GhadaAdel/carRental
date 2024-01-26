@@ -36,7 +36,7 @@
         <div class="col-md-3 left_col">
           <div class="left_col scroll-view">
             <div class="navbar nav_title" style="border: 0;">
-              <a href="index.html" class="site_title"><i class="fa fa-car"></i></i> <span>Rent Car Admin</span></a>
+              <a href="{{ route ('users')}}" class="site_title"><i class="fa fa-car"></i></i> <span>Rent Car Admin</span></a>
             </div>
 
             <div class="clearfix"></div>
@@ -86,7 +86,7 @@
 								</li>
                 <li><a><i class="fa fa-desktop"></i> Messages <span class="fa fa-chevron-down"></span></a>
 									<ul class="nav child_menu">
-										<li><a href="messages.html">Messages</a></li>
+										<li><a href="{{ route('messagesList')}}">Messages</a></li>
 									</ul>
 								</li>
 							</ul>
@@ -152,67 +152,39 @@
                   <li role="presentation" class="nav-item dropdown open">
                     <a href="javascript:;" class="dropdown-toggle info-number" id="navbarDropdown1" data-toggle="dropdown" aria-expanded="false">
                       <i class="fa fa-envelope-o"></i>
-                      <span class="badge bg-green">6</span>
+                      <span class="badge bg-green">{{Auth::User()->unreadNotifications->count()}}</span>
                     </a>
                     <ul class="dropdown-menu list-unstyled msg_list" role="menu" aria-labelledby="navbarDropdown1">
+
+                      @foreach(Auth::User()->unreadNotifications as $notification)
                       <li class="nav-item">
+                      <a href="{{ route('readNotification')}}"><span>Mark All As Read</span></a>
+
                         <a class="dropdown-item">
                           <span class="image"><img src="{{asset('assets/images/img.jpg')}}" alt="Profile Image" /></span>
                           <span>
-                            <span>John Smith</span>
-                            <span class="time">3 mins ago</span>
+                            <span>{{$notification->data['user_create']}}</span>
+                            <span class="time">{{$notification->created_at}}</span>
                           </span>
                           <span class="message">
-                            Film festivals used to be do-or-die moments for movie makers. They were where...
+                           <a href="{{ route ('showMessage', $notification->data['contact_id'])}}"> {{$notification->data['message']}}
                           </span>
                         </a>
                       </li>
-                      <li class="nav-item">
-                        <a class="dropdown-item">
-                          <span class="image"><img src="{{asset('assets/images/img.jpg')}}" alt="Profile Image" /></span>
-                          <span>
-                            <span>John Smith</span>
-                            <span class="time">3 mins ago</span>
-                          </span>
-                          <span class="message">
-                            Film festivals used to be do-or-die moments for movie makers. They were where...
-                          </span>
-                        </a>
-                      </li>
-                      <li class="nav-item">
-                        <a class="dropdown-item">
-                          <span class="image"><img src="{{asset('assets/images/img.jpg')}}" alt="Profile Image" /></span>
-                          <span>
-                            <span>John Smith</span>
-                            <span class="time">3 mins ago</span>
-                          </span>
-                          <span class="message">
-                            Film festivals used to be do-or-die moments for movie makers. They were where...
-                          </span>
-                        </a>
-                      </li>
-                      <li class="nav-item">
-                        <a class="dropdown-item">
-                          <span class="image"><img src="{{asset('assets/images/img.jpg')}}" alt="Profile Image" /></span>
-                          <span>
-                            <span>John Smith</span>
-                            <span class="time">3 mins ago</span>
-                          </span>
-                          <span class="message">
-                            Film festivals used to be do-or-die moments for movie makers. They were where...
-                          </span>
-                        </a>
-                      </li>
+                     @endforeach
+                    
                       <li class="nav-item">
                         <div class="text-center">
                           <a class="dropdown-item">
-                            <strong>See All Alerts</strong>
+                            <a href="{{ route('messagesList')}}"><strong>See All Alerts</strong></a>
                             <i class="fa fa-angle-right"></i>
                           </a>
                         </div>
                       </li>
                     </ul>
                   </li>
+
+
                 </ul>
               </nav>
             </div>
