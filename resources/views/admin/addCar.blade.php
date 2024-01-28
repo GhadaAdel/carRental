@@ -50,7 +50,10 @@
 											<label class="col-form-label col-md-3 col-sm-3 label-align" for="title">Title
 											</label>
 											<div class="col-md-6 col-sm-6 ">
-												<input type="text" id="title" required="required" name="title" class="form-control ">
+												<input type="text" id="title" name="title" class="form-control ">
+												@error('title')
+													{{ $message }}
+												@enderror
 											</div>
 										</div>
 										<div class="item form-group">
@@ -58,30 +61,45 @@
 											</label>
 											<div class="col-md-6 col-sm-6 ">
 												<textarea id="content" name="content" class="form-control"></textarea>
+												@error('content')
+												{{ $message }}
+											@enderror
 											</div>
 										</div>
 										<div class="item form-group">
 											<label for="luggage" class="col-form-label col-md-3 col-sm-3 label-align">Luggage</label>
 											<div class="col-md-6 col-sm-6 ">
 												<input id="luggage" class="form-control" type="number" name="luggage">
+												@error('luggage')
+													{{ $message }}
+												@enderror
 											</div>
 										</div>
 										<div class="item form-group">
 											<label for="doors" class="col-form-label col-md-3 col-sm-3 label-align">Doors</label>
 											<div class="col-md-6 col-sm-6 ">
 												<input id="doors" class="form-control" type="number" name="doors">
+												@error('doors')
+													{{ $message }}
+												@enderror
 											</div>
 										</div>
 										<div class="item form-group">
 											<label for="passengers" class="col-form-label col-md-3 col-sm-3 label-align">Passengers</label>
 											<div class="col-md-6 col-sm-6 ">
 												<input id="passengers" class="form-control" type="number" name="passenger">
+												@error('passenger')
+													{{ $message }}
+												@enderror
 											</div>
 										</div>
 										<div class="item form-group">
 											<label for="price" class="col-form-label col-md-3 col-sm-3 label-align">Price</label>
 											<div class="col-md-6 col-sm-6 ">
 												<input id="price" class="form-control" type="number" name="price">
+												@error('price')
+													{{ $message }}
+												@enderror
 											</div>
 										</div>
 										<div class="item form-group">
@@ -97,6 +115,9 @@
 											</label>
 											<div class="col-md-6 col-sm-6 ">
 												<input type="file" id="image" name="image" required="required" class="form-control">
+												@error('luggage')
+													{{ $message }}
+												@enderror
 											</div>
 										</div>
 

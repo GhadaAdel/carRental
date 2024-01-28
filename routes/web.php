@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\ContactController;
-
+define('pagination_count',5);
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -35,7 +35,6 @@ Route::prefix('/')->controller(ContactController::class)->group(function(){
 });
     
 
-Auth::routes(['verify'=>true]);
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 

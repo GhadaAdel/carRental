@@ -19,7 +19,9 @@ use App\Http\Controllers\ContactController;
 |
 */
 
-Route::prefix('admin')->controller(CarController::class)->group(function(){
+Auth::routes(['verify'=>true]);
+
+Route::prefix('admin')->middleware('verified')->controller(CarController::class)->group(function(){
     Route::get('cars', 'index')->name('cars');
     Route::post('addcar', 'store')->name('addcar');
     Route::get('addcar', 'create')->name('form');
@@ -33,7 +35,7 @@ Route::prefix('admin')->controller(CarController::class)->group(function(){
     Route::get('testimonials', 'testimonials')->name('testimonials');
 });
 
-Route::prefix('admin')->controller(CategoryController::class)->group(function(){
+Route::prefix('admin')->middleware('verified')->controller(CategoryController::class)->group(function(){
     Route::get('categories', 'index')->name('categories');
     Route::post('addcat', 'store')->name('addcat');
     Route::get('addcat', 'create')->name('catForm');
@@ -42,7 +44,7 @@ Route::prefix('admin')->controller(CategoryController::class)->group(function(){
     Route::get('deletecat/{id}', 'destroy');
 });
 
-Route::prefix('admin')->controller(UserController::class)->group(function(){
+Route::prefix('admin')->middleware('verified')->controller(UserController::class)->group(function(){
     Route::get('users', 'index')->name('users');
     Route::post('addUser', 'store')->name('addUser');
     Route::get('addUser', 'create')->name('userForm');
@@ -51,18 +53,18 @@ Route::prefix('admin')->controller(UserController::class)->group(function(){
     Route::get('deleteUser/{id}', 'destroy');
 });
 
-Route::prefix('admin')->controller(TestimonialController::class)->group(function(){
+Route::prefix('admin')->middleware('verified')->controller(TestimonialController::class)->group(function(){
     Route::get('testimonials', 'index')->name('testimonials');
     Route::post('addTestimonial', 'store')->name('addTestimonial');
     Route::get('addTestimonial', 'create')->name('testimonialForm');
     Route::get('editTestimonial/{id}', 'edit');
     Route::put('updateTestimonial/{id}', 'update')->name('editTestimonial');
     Route::get('deleteTestimonial/{id}', 'destroy');
-})->middleware('verified');
+});
 
 Route::post('logout', [LoginController::class, 'logout'])->name('logout');
 
-Route::prefix('admin')->controller(ContactController::class)->group(function(){
+Route::prefix('admin')->middleware('verified')->controller(ContactController::class)->group(function(){
     Route::get('message', 'index')->name('messagesList');
     Route::get('showMessage/{id}', 'show')->name('showMessage');
     Route::get('unread', 'getUnreadMessages');

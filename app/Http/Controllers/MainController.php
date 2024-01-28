@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Car;
+use App\Models\Category;
 use App\Models\Testimonial;
 use Illuminate\Support\Str;
 
@@ -12,10 +13,12 @@ class MainController extends Controller
     public function index()
     {
         
-        $cars= Car::latest()->take(6)->get();
+        $cars= Car::latest()->paginate(pagination_count);
         // foreach ($cars as $car) {
         //     $car->limitedDescription = Str::words($car->content, 50, '...');
         // }
+    
+        // $car = Str::limit('xcvfgh', 20); 
         $test = Testimonial::latest()->take(3)->get();
         return view('web/index', compact('cars','test'));
     }
@@ -46,7 +49,7 @@ class MainController extends Controller
 
     public function carList()
     {
-        $cars= Car::latest()->take(6)->get();
+        $cars= Car::latest()->paginate(pagination_count);
         return view('web/listing', compact('cars'));
     }
     
@@ -58,7 +61,8 @@ class MainController extends Controller
     public function single(string $id)
     {
         $car = Car::findOrfail($id);
-        return view('web/single', compact('car'));
+        $categories = Category::withCount('cars')->get();
+        return view('web/single', compact('car','categories'));
     }
 
     public function testimonials()

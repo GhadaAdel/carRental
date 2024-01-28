@@ -45,15 +45,4 @@ class User extends Authenticatable implements MustVerifyEmail
         'password' => 'hashed',
     ];
 
-    // public function contacts()
-    // {
-    //     return $this->hasMany(Contact::class);
-    // }
-
-    // public function getUnreadMessages()
-    // {
-    // return $this->contacts() // Get all contacts related to the user
-    //     ->whereNull('read_at') // Filter for messages where read_at is null (unread)
-    //     ->get(); // Fetch the results
-    // }
 }

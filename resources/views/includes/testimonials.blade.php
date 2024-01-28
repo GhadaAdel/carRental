@@ -13,7 +13,7 @@
         <div class="col-lg-4 mb-4 mb-lg-0">
           <div class="testimonial-2">
             <blockquote class="mb-4">
-              <p>{{ $t->content }}</p>
+              <p>{{ Str::limit($t->content,100)}}</p>
             </blockquote>
             <div class="d-flex v-card align-items-center">
               <img src="{{ asset('assets/images/'.$t->image) }}" alt="Image" class="img-fluid mr-3">

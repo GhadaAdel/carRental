@@ -13,7 +13,7 @@
                     <div class="col-md-6 col-lg-4 mb-4">
           <div class="listing d-block  align-items-stretch">
             <div class="listing-img h-100 mr-4">
-              <img src="{{ asset('assets/images/'.$car->image) }}" alt="Image" class="img-fluid">
+              <img src="{{ asset('assets/images/'.$car->image) }}" alt="Image" style="height:200px; width:200px;" class="img-fluid">
             </div>
             <div class="listing-contents h-100">
               <h3>{{ $car->title }}</h3>
@@ -35,7 +35,7 @@
                 </div>
               </div>
               <div>
-                <p>{{ $car->content }}</p>
+                <p>{{ Str::limit($car->content,30)}}</p>
                 <p><a href="{{ route('single',$car->id)}}" class="btn btn-primary btn-sm">Rent Now</a></p>
               </div>
             </div>
@@ -46,5 +46,8 @@
         @endforeach
 
         </div>
+
+        {!! $cars->links() !!}
+
       </div>
     </div>

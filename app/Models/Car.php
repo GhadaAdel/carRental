@@ -32,4 +32,8 @@ class Car extends Model
     // {
     //     return Str::words($this->content, 50, '...');
     // }
+    public function getShortDescriptionAttribute()
+    {
+        return Str::words($this->content, 20);
+    }
 }

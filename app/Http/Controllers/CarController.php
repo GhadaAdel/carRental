@@ -40,13 +40,13 @@ class CarController extends Controller
         
         $data = $request->validate([
             'title'=>'required|string',
-            'content'=>'required|string|max:5',
+            'content'=>'required|string|max:40',
             'luggage'=>'required',
             'doors'=>'required',
             'passenger'=>'required',
             'price'=>'required',
             'image' => 'required|mimes:png,jpg,jpeg|max:2048',
-            'category_id'=>'required',
+            'category_id'=>'required'
         ], $messages);
 
         $fileName= $this->uploadFile($request->image,'assets\images');
@@ -64,7 +64,12 @@ class CarController extends Controller
 
          return [
             'title.required'=>'This is required',
-            'content.required'=>'This is required'
+            'content.required'=>'Thiiiiis is required',
+            'luggage'=>'Thisss is required',
+            'doors'=>'This is required',
+            'passenger'=>'This is required',
+            'price'=>'This is required',
+            'image' => 'This is required'
             ];
     }
     /**
