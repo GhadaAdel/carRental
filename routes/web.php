@@ -30,7 +30,7 @@ Route::prefix('/')->controller(MainController::class)->group(function(){
 });
 
 Route::prefix('/')->controller(ContactController::class)->group(function(){
-    Route::post('submit', 'sendEmail')->name('submit');
+    Route::post('submit', 'sendEmail')->name('submit')->middleware('verified');
     Route::get('Notification/markAsRead', 'markAsRead')->name('readNotification');
 });
     
