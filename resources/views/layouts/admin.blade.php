@@ -36,7 +36,7 @@
         <div class="col-md-3 left_col">
           <div class="left_col scroll-view">
             <div class="navbar nav_title" style="border: 0;">
-              <a href="{{ route ('users')}}" class="site_title"><i class="fa fa-car"></i></i> <span>Rent Car Admin</span></a>
+              <a href="{{ route ('home')}}" class="site_title"><i class="fa fa-car"></i></i> <span>Rent Car Admin</span></a>
             </div>
 
             <div class="clearfix"></div>
@@ -155,10 +155,14 @@
                       <span class="badge bg-green">{{Auth::User()->unreadNotifications->count()}}</span>
                     </a>
                     <ul class="dropdown-menu list-unstyled msg_list" role="menu" aria-labelledby="navbarDropdown1">
-
+                      <li class="nav-item">
+                        <div class="text-center">
+                      <a class="dropdown-item" href="{{ route('readNotification')}}"><strong>Mark All As Read</strong>
+                        <i class="fa fa-angle-right"></i></a>
+                        </div>
+                      </li>
                       @foreach(Auth::User()->unreadNotifications as $notification)
                       <li class="nav-item">
-                      <a href="{{ route('readNotification')}}"><span>Mark All As Read</span></a>
 
                         <a class="dropdown-item">
                           <span class="image"><img src="{{asset('assets/images/img.jpg')}}" alt="Profile Image" /></span>

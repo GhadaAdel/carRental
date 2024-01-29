@@ -25,10 +25,10 @@ class ContactController extends Controller
             'message' => 'required|string|max:400'
         ]);
 
-        $posts = Contact::create($data);
+        $contacts = Contact::create($data);
         $users = User::where('id', '!=', auth()->user()->id)->get();
         $user_create = auth()->user()->name;
-        Notification::send($users, new CreateMessage($posts->id, $user_create, $posts->message));
+        Notification::send($users, new CreateMessage($contacts->id, $user_create, $contacts->message));
 
         // $userToNotify = User::find($posts->id); // Replace $userId with the actual ID of the user you want to notify
 
@@ -49,7 +49,8 @@ class ContactController extends Controller
     public function show(string $id)
     {
        $contact = Contact::findOrFail($id);
-       $getID = DB::table('notifications')->where('data->contact_id', $id)->pluck('id');
+       $getID = DB::table('notifications')->where('data->contact_id', $id)->where('notifiable_id',auth()->user()->id)->pluck('id');
+     //  DB::table('notifications')->where('data->id',$id)->where('notifiable_id',auth()->user()->id)->pluck('id');
     //    $userID = DB::table('notifications')->where('data->contact_id', $id)->pluck('id');
        DB::table('notifications')->where('id',$getID)->update(['read_at'=>now()]);
        return view('admin/showMessage', compact('contact'));

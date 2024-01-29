@@ -13,12 +13,8 @@ class MainController extends Controller
     public function index()
     {
         
-        $cars= Car::latest()->paginate(pagination_count);
-        // foreach ($cars as $car) {
-        //     $car->limitedDescription = Str::words($car->content, 50, '...');
-        // }
-    
-        // $car = Str::limit('xcvfgh', 20); 
+        $cars= Car::where('published', 1)->paginate(pagination_count);
+        
         $test = Testimonial::latest()->take(3)->get();
         return view('web/index', compact('cars','test'));
     }
@@ -49,7 +45,7 @@ class MainController extends Controller
 
     public function carList()
     {
-        $cars= Car::latest()->paginate(pagination_count);
+        $cars= Car::where('published', 1)->paginate(pagination_count);
         return view('web/listing', compact('cars'));
     }
     

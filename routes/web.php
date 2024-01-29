@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\ContactController;
-define('pagination_count',5);
+define('pagination_count',6);
 /*
 |--------------------------------------------------------------------------
 | Web Routes
