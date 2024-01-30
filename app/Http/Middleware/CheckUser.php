@@ -15,8 +15,8 @@ class CheckUser
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if(auth()->user()->published == 0){
-            return redirect()->route('contact');
+        if(auth()->user()->published == 1){
+            return redirect()->route('index');
         }
         return $next($request);
     }
