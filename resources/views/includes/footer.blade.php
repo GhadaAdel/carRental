@@ -16,41 +16,41 @@
             <div class="col-lg-3">
               <h2 class="footer-heading mb-4">Quick Links</h2>
               <ul class="list-unstyled">
-                <li><a href="#">About Us</a></li>
-                <li><a href="#">Testimonials</a></li>
+                <li><a href="{{ route('about') }}" {{ request()->routeIs('about') ? 'active' : '' }}>About Us</a></li>
+                <li><a href="{{ route('WebTestimonials') }}" {{ request()->routeIs('testimonials') ? 'active' : '' }}>testimonials</a></li>
                 <li><a href="#">Terms of Service</a></li>
                 <li><a href="#">Privacy</a></li>
-                <li><a href="#">Contact Us</a></li>
+                <li><a href="{{ route('contact') }}" {{ request()->routeIs('contact') ? 'active' : '' }}>Contact</a></li>
               </ul>
             </div>
             <div class="col-lg-3">
               <h2 class="footer-heading mb-4">Resources</h2>
               <ul class="list-unstyled">
-                <li><a href="#">About Us</a></li>
-                <li><a href="#">Testimonials</a></li>
+                <li><a href="{{ route('about') }}" {{ request()->routeIs('about') ? 'active' : '' }}>About Us</a></li>
+                <li><a href="{{ route('WebTestimonials') }}" {{ request()->routeIs('testimonials') ? 'active' : '' }}>testimonials</a></li>
                 <li><a href="#">Terms of Service</a></li>
                 <li><a href="#">Privacy</a></li>
-                <li><a href="#">Contact Us</a></li>
+                <li><a href="{{ route('contact') }}" {{ request()->routeIs('contact') ? 'active' : '' }}>Contact</a></li>
               </ul>
             </div>
             <div class="col-lg-3">
               <h2 class="footer-heading mb-4">Support</h2>
               <ul class="list-unstyled">
-                <li><a href="#">About Us</a></li>
-                <li><a href="#">Testimonials</a></li>
+                <li><a href="{{ route('about') }}" {{ request()->routeIs('about') ? 'active' : '' }}>About Us</a></li>
+                <li><a href="{{ route('WebTestimonials') }}" {{ request()->routeIs('testimonials') ? 'active' : '' }}>testimonials</a></li>
                 <li><a href="#">Terms of Service</a></li>
                 <li><a href="#">Privacy</a></li>
-                <li><a href="#">Contact Us</a></li>
+                <li><a href="{{ route('contact') }}" {{ request()->routeIs('contact') ? 'active' : '' }}>Contact</a></li>
               </ul>
             </div>
             <div class="col-lg-3">
               <h2 class="footer-heading mb-4">Company</h2>
               <ul class="list-unstyled">
-                <li><a href="#">About Us</a></li>
-                <li><a href="#">Testimonials</a></li>
+                <li><a href="{{ route('about') }}" {{ request()->routeIs('about') ? 'active' : '' }}>About Us</a></li>
+                <li><a href="{{ route('WebTestimonials') }}" {{ request()->routeIs('testimonials') ? 'active' : '' }}>testimonials</a></li>
                 <li><a href="#">Terms of Service</a></li>
                 <li><a href="#">Privacy</a></li>
-                <li><a href="#">Contact Us</a></li>
+                <li><a href="{{ route('contact') }}" {{ request()->routeIs('contact') ? 'active' : '' }}>Contact</a></li>
               </ul>
             </div>
           </div>

@@ -28,8 +28,6 @@
               <li><a href="{{ route('contact') }}" class="nav-item nav-link {{ request()->routeIs('contact') ? 'active' : '' }}">Contact</a></li>
             </ul>
           </nav>
-
-          {{-- علشان ابين اسم الادمن في الويبسايت ولما يدوس عليه يطلع كل صفحات الادمن --}}
           @if (Route::has('login'))
         @auth
             <a href="{{route('home')}}" class="nav-item nav-link ">
