@@ -53,7 +53,7 @@ class CarController extends Controller
 
         $data['image'] = $fileName;
 
-        $data['published'] = isset($request['published'])? true : false;
+        $data['published'] = isset($request['published']);
 
         Car::create($data);
         return "carRental";

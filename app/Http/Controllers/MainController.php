@@ -13,7 +13,7 @@ class MainController extends Controller
     public function index()
     {
         
-        $cars= Car::where('published', 1)->paginate(pagination_count);
+        $cars= Car::where('published', 1)->latest()->take(6)->paginate(pagination_count);
         
         $test = Testimonial::latest()->take(3)->get();
         return view('web/index', compact('cars','test'));
