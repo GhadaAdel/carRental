@@ -84,7 +84,6 @@ class UserController extends Controller
             'name'=>'required|string',
             'username'=>'required|string',
             'email'=>'required',
-            'password'=>'required',
         ], $messages);
 
         $data['published'] = isset($request->published);
