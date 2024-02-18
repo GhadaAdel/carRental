@@ -1,3 +1,12 @@
+To open the admin panel, you may use these credentials:
+Email: gh@gmail.com
+Password: 12345678
+
+Note that:
+All users have to verify their emails if they wish to register\login to send an email through the contact form.
+All users will get number "1" as a default value for the column "published" and that means they are only allowed to see the main pages of the website.
+If we decide that a certain user can be an admin then, we have to change the value of "published" column from "1" to "0" manually in the database. Thus, they will be able to see all pages of the admin panel. Also, they will have the permission to add,edit or delete any information in these pages.
+
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
 <p align="center">
